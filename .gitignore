@@ -1,0 +1,8 @@
+build/
+obj/
+*.o
+*.a
+*.out
+*.log
+*.dSYM/
+.DS_Store
