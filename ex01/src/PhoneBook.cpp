@@ -6,7 +6,7 @@
 /*   By: bde-luce <bde-luce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 00:06:07 by bde-luce          #+#    #+#             */
-/*   Updated: 2025/10/26 00:12:24 by bde-luce         ###   ########.fr       */
+/*   Updated: 2025/10/31 12:25:31 by bde-luce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ void	PhoneBook :: display_contact_info() const
 {
 	std :: cout << "Insert a contact index to view details >> ";
 	std :: string index;
-	std :: getline(std :: cin >> std :: ws, index);
+	if (!std :: getline(std :: cin >> std :: ws, index))
+	{
+		std :: cout << "\nEOF detected! Leaving program..\n";	
+		exit(0);
+	}
 	int j;
 	j = std :: atoi(index.c_str());
 	if (index.length() > 1 || j < 1 || j > 8)

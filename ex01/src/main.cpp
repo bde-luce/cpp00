@@ -6,7 +6,7 @@
 /*   By: bde-luce <bde-luce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 23:15:42 by bde-luce          #+#    #+#             */
-/*   Updated: 2025/10/26 00:10:39 by bde-luce         ###   ########.fr       */
+/*   Updated: 2025/10/31 12:17:34 by bde-luce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ int	main(void)
 	{
 		std :: cout << "Enter one of the following commands: ADD, SEARCH or EXIT >> ";
 		std :: string	command;
-		std :: getline(std :: cin >> std :: ws, command);
-		if (command == "ADD")
+		if (!std :: getline(std :: cin >> std :: ws, command))
+		{
+			std :: cout << "\nEOF detected! Leaving program..\n";	
+			break;
+		}
+		else if (command == "ADD")
 			phonebook.add();
 		else if (command == "SEARCH")
 			phonebook.search();
@@ -36,4 +40,5 @@ int	main(void)
 		else
 			std :: cout << "\n* Invalid command entered *\n\n";
 	}
+	return (0);
 }
